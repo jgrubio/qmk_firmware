@@ -1,0 +1,2 @@
+qmk compile -kb crkbd/r2g -km corneto
+qmk flash -kb crkbd/r2g -km corneto
