@@ -18,11 +18,10 @@ enum custom_layers {
 #define GUI_ENT  GUI_T(KC_ENT)
 #define LOW_TAB  LT(_LOWER, KC_TAB)
 #define OSL_FUN  OSL(_FUNC)
-//#define OSM_AGR  OSM(MOD_RALT)
+#define OSM_AGR  OSM(MOD_RALT)
 #define OSM_LCTL OSM(MOD_LCTL)
 #define OSM_SFT  OSM(MOD_LSFT)
 #define RSE_BSP  LT(_RAISE, KC_BSPC)
-#define ACN_AGR  MT(MOD_RALT, ES_ACUT)
 
 // For _RAISE layer
 #define CTL_ESC  LCTL_T(KC_ESC)
@@ -43,7 +42,7 @@ enum combos {
 
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
-const uint16_t PROGMEM tn_combo[] = {KC_N, ACN_AGR, COMBO_END};
+const uint16_t PROGMEM tn_combo[] = {KC_N, ES_ACUT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   // Add commonly used dash to home row
@@ -60,9 +59,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
- OSM(MOD_LALT),   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, ES_SLSH, ACN_AGR,
+ OSM(MOD_LALT),   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, ES_MINS, ES_ACUT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
- OSM(MOD_LSFT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, ES_COMM,  ES_DOT,   ES_AT, OSL_FUN,
+ OSM(MOD_LSFT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, ES_COMM,  ES_DOT, ES_COLN, OSL_FUN,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          OSM_LCTL, GUI_ENT, LOW_TAB,   RSE_BSP ,KC_SPC  ,OSM_SFT
                                       //`--------------------------'  `--------------------------'
@@ -72,9 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, XXXXXXX, ES_LBRC, ES_RBRC, ES_IQUE, ES_QUES,                         KC_7,    KC_8,    KC_9,    KC_0, ES_PERC,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, ES_IEXL, ES_EXLM, ES_LPRN, ES_RPRN,                         KC_4,    KC_5,    KC_6, ES_DQUO, ES_QUOT,_______ ,
+      _______, XXXXXXX, ES_IEXL, ES_EXLM, ES_LPRN, ES_RPRN,                         KC_4,    KC_5,    KC_6, ES_DQUO, ES_QUOT, OSM_AGR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, ES_DIAE, ES_TILD, ES_AMPR, ES_CIRC,  ES_DLR,                         KC_1,    KC_2,    KC_3, ES_HASH, ES_SCLN,_______ ,
+      _______, ES_DIAE, ES_TILD, ES_AMPR, ES_CIRC,  ES_DLR,                         KC_1,    KC_2,    KC_3, ES_HASH,   ES_AT,_______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_TRNS,  KC_TRNS, LOWER,    KC_TRNS, KC_TRNS, KC_COLON
                                       //`--------------------------'  `--------------------------'
@@ -83,9 +82,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, KC_DEL , XXXXXXX, ES_UNDS, ES_UNDS, KC_PGUP,                      ES_ASTR, XXXXXXX, XXXXXXX, KC_BSLS, ES_PIPE,_______ ,
+      _______, KC_DEL , XXXXXXX, ES_UNDS, ES_PLUS, KC_PGUP,                      ES_ASTR, XXXXXXX, XXXXXXX, KC_BSLS, ES_PIPE,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, KC_HOME, KC_END,  ES_MINS,  ES_EQL, KC_PGDN,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_APP,_______ ,
+      _______, KC_HOME, KC_END,  ES_SLSH,  ES_EQL, KC_PGDN,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_APP, OSM_AGR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, ES_LABK, ES_RABK, KC_COPY, KC_PSTE, ES_SCLN,                      KC_MPLY, KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU,_______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -97,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______,  KC_F11,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,_______ ,
+      _______,  KC_F11,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, OSM_AGR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PSCR, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,_______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
