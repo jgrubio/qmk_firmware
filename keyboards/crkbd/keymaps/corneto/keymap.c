@@ -43,7 +43,6 @@ enum combos {
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM tn_combo[] = {KC_N, ES_ACUT, COMBO_END};
-
 combo_t key_combos[COMBO_COUNT] = {
   // Add commonly used dash to home row
   [DF_DASH]    = COMBO(df_combo, KC_MINS),
@@ -82,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, KC_DEL , XXXXXXX, ES_UNDS, ES_PLUS, KC_PGUP,                      ES_ASTR, XXXXXXX, XXXXXXX, KC_BSLS, ES_PIPE,_______ ,
+      _______, KC_DEL , XXXXXXX, ES_UNDS, ES_PLUS, KC_PGUP,                      ES_ASTR, XXXXXXX, XXXXXXX, ES_SLSH, ES_PIPE,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_HOME, KC_END,  ES_SLSH,  ES_EQL, KC_PGDN,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_APP, OSM_AGR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
