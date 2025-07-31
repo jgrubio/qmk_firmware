@@ -1,2 +1,7 @@
+Clona fork
+Crear pyenv
+qmk doctor
+
+
 qmk compile -kb crkbd/r2g -km corneto
 qmk flash -kb crkbd/r2g -km corneto
