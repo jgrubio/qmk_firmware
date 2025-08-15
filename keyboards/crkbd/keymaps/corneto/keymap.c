@@ -44,8 +44,8 @@ const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM tn_combo[] = {KC_N, ES_ACUT, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
-  // Add commonly used dash to home row
-  [DF_DASH]    = COMBO(df_combo, KC_MINS),
+  // Add commonly used quote to home row
+  [DF_DASH]    = COMBO(df_combo, ES_DQUO),
   // For Vim, put Escape on the home row
   [JK_ESC]    = COMBO(jk_combo, KC_ESC),
   // Add ñ character
@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, ES_DIAE, ES_LBRC, ES_RBRC, ES_IQUE, ES_QUES,                         KC_7,    KC_8,    KC_9,    KC_0, ES_PERC,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, ES_EURO, ES_IEXL, ES_EXLM, ES_LPRN, ES_RPRN,                         KC_4,    KC_5,    KC_6, ES_DQUO, ES_QUOT, OSM_AGR,
+      _______, ES_EURO, ES_IEXL, ES_EXLM, ES_LPRN, ES_RPRN,                         KC_4,    KC_5,    KC_6, ES_QUOT, KC_GRV, OSM_AGR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, ES_TILD, ES_AMPR, ES_CIRC,  ES_DLR,                         KC_1,    KC_2,    KC_3, ES_HASH,   ES_AT,_______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
