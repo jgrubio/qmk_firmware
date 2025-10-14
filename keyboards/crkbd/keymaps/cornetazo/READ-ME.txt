@@ -1,0 +1,13 @@
+Clona fork
+Crear pyenv
+qmk doctor
+
+
+qmk compile -kb crkbd/r2g -km corneto
+qmk flash -kb crkbd/r2g -km corneto
+
+
+Nuevo
+qmk compile -kb crkbd/rev1 -km cornetazo -e CONVERT_TO=helios
+cp /home/jorge/repo_personal/qmk_firmware/.build/crkbd_rev1_cornetazo_helios.uf2 /run/media/jorge/RPI-RP2/
+
