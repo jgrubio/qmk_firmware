@@ -29,9 +29,7 @@ enum custom_layers {
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
-  RAISE,
-  FUNC,
-  BACKLIT
+  RAISE
 };
 
 enum combos {
