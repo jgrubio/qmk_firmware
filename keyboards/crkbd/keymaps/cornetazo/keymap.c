@@ -29,7 +29,9 @@ enum custom_layers {
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
-  RAISE
+  RAISE,
+  VIM_QUIT,
+  VIM_SAVE
 };
 
 enum combos {
@@ -101,6 +103,123 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                       //`--------------------------'  `--------------------------'
   )
 };
+
+// Variables para detectar Ctrl+Q presionado dos veces
+static uint16_t ctrl_q_timer = 0;
+static uint8_t ctrl_q_count = 0;
+
+// Variables para detectar Ctrl+G presionado dos veces
+static uint16_t ctrl_g_timer = 0;
+static uint8_t ctrl_g_count = 0;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case VIM_QUIT:
+            if (record->event.pressed) {
+                tap_code(KC_ESC);
+                tap_code16(ES_COLN);  // :
+                tap_code(KC_Q);
+                tap_code16(ES_EXLM);  // !
+                tap_code(KC_ENT);
+            }
+            return false;
+
+        case KC_Q:
+            if (record->event.pressed) {
+                // Verificar si Ctrl está presionado
+                if (get_mods() & MOD_MASK_CTRL) {
+                    // Si el timer expiró, resetear contador
+                    if (timer_elapsed(ctrl_q_timer) > 500) {
+                        ctrl_q_count = 0;
+                    }
+
+                    ctrl_q_count++;
+                    ctrl_q_timer = timer_read();
+
+                    // Si se presionó Ctrl+Q dos veces
+                    if (ctrl_q_count >= 2) {
+                        ctrl_q_count = 0;
+
+                        // Ejecutar :q!
+                        // Primero limpiamos los modificadores
+                        uint8_t mods = get_mods();
+                        clear_mods();
+                        send_keyboard_report();  // Asegurar que se envía el clear
+                        wait_ms(100);
+
+                        // Enviar ESC para salir del modo insert
+                        tap_code(KC_ESC);
+                        wait_ms(200);  // Dar mucho más tiempo a Vim para procesar
+
+                        tap_code16(ES_COLN);  // :
+                        wait_ms(20);
+                        tap_code(KC_Q);
+                        wait_ms(20);
+                        tap_code16(ES_EXLM);  // !
+                        wait_ms(20);
+                        tap_code(KC_ENT);
+
+                        // Restaurar modificadores
+                        set_mods(mods);
+
+                        return false; // No procesar la segunda Q normalmente
+                    }
+
+                    // Bloquear TAMBIÉN la primera Q para que no interfiera con Vim
+                    return false;
+                }
+            }
+            break;
+
+        case KC_G:
+            if (record->event.pressed) {
+                // Verificar si Ctrl está presionado
+                if (get_mods() & MOD_MASK_CTRL) {
+                    // Si el timer expiró, resetear contador
+                    if (timer_elapsed(ctrl_g_timer) > 500) {
+                        ctrl_g_count = 0;
+                    }
+
+                    ctrl_g_count++;
+                    ctrl_g_timer = timer_read();
+
+                    // Si se presionó Ctrl+G dos veces
+                    if (ctrl_g_count >= 2) {
+                        ctrl_g_count = 0;
+
+                        // Ejecutar :x!
+                        // Primero limpiamos los modificadores
+                        uint8_t mods = get_mods();
+                        clear_mods();
+                        send_keyboard_report();  // Asegurar que se envía el clear
+                        wait_ms(100);
+
+                        // Enviar ESC para salir del modo insert
+                        tap_code(KC_ESC);
+                        wait_ms(200);  // Dar mucho más tiempo a Vim para procesar
+
+                        tap_code16(ES_COLN);  // :
+                        wait_ms(20);
+                        tap_code(KC_X);
+                        wait_ms(20);
+                        tap_code16(ES_EXLM);  // !
+                        wait_ms(20);
+                        tap_code(KC_ENT);
+
+                        // Restaurar modificadores
+                        set_mods(mods);
+
+                        return false; // No procesar la segunda G normalmente
+                    }
+
+                    // Bloquear TAMBIÉN la primera G para que no interfiera con Vim
+                    return false;
+                }
+            }
+            break;
+    }
+    return true;
+}
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
