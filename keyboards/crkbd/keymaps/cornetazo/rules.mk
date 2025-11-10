@@ -5,6 +5,7 @@ EXTRAKEY_ENABLE = yes
 # LTO_ENABLE = yes
 
 COMBO_ENABLE = yes
+SRC += acento_corne.c
 
 # This is for RGB *underglow*
 # https://github.com/qmk/qmk_firmware/blob/master/docs/feature_rgblight.md
