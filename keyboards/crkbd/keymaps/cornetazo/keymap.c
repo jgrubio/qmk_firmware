@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______, ES_DIAE, ES_LBRC, ES_RBRC, ES_IQUE, ES_QUES,                         KC_7,    KC_8,    KC_9,    KC_0, ES_PERC,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, ES_EURO, ES_IEXL, ES_EXLM, ES_LPRN, ES_RPRN,                         KC_4,    KC_5,    KC_6, ES_QUOT, KC_GRV, OSM_AGR,
+      _______, XXXXXXX, ES_IEXL, ES_EXLM, ES_LPRN, ES_RPRN,                         KC_4,    KC_5,    KC_6, ES_QUOT, RALT(ES_ACUT), OSM_AGR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, XXXXXXX, ES_TILD, ES_AMPR, ES_CIRC,  ES_DLR,                         KC_1,    KC_2,    KC_3, ES_HASH,   ES_AT,_______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -81,11 +81,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, KC_DEL , XXXXXXX, ES_UNDS, ES_PLUS, KC_PGUP,                      ES_ASTR, XXXXXXX, XXXXXXX, ES_SLSH, ES_PIPE,_______ ,
+      _______, XXXXXXX, XXXXXXX, ES_UNDS, ES_PLUS, KC_PGUP,                      ES_ASTR, XXXXXXX, XXXXXXX, ES_SLSH, ES_PIPE,_______ ,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_HOME, KC_END,  ES_BSLS,  ES_EQL, KC_PGDN,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT,  KC_APP, OSM_AGR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, ES_LABK, ES_RABK, KC_COPY, KC_PSTE, ES_SCLN,                      KC_MPLY, KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU,_______ ,
+      _______, ES_LABK, ES_RABK, XXXXXXX, XXXXXXX, ES_SCLN,                      KC_MPLY, KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU,_______ ,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           CTL_ESC, KC_TRNS, XXXXXXX,    RAISE  , KC_TRNS, KC_TRNS
                                       //`--------------------------'  `--------------------------'
