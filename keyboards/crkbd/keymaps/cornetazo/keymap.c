@@ -33,16 +33,13 @@ enum custom_layers {
 enum combos {
   DF_DASH,
   JK_ESC,
-  TN_NH,
 };
 
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
-const uint16_t PROGMEM tn_combo[] = {KC_N, AC_TILDE, COMBO_END};  // ← CAMBIO
 combo_t key_combos[COMBO_COUNT] = {
   [DF_DASH]    = COMBO(df_combo, ES_DQUO),
   [JK_ESC]    = COMBO(jk_combo, KC_ESC),
-  [TN_NH]    = COMBO(tn_combo, ES_NTIL),
 };
 
 

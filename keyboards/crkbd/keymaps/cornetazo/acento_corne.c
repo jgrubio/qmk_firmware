@@ -258,24 +258,6 @@ void handle_accents(uint16_t keycode, bool down, keyrecord_t *record, bool *stop
             case KC_SPC:
                 tap_code16(ES_DLR);
             break;
-
-            // ; End of line, common combination for some programmers
-            // M3 reemplazado por RAISE (ajustar según tu keymap)
-            case RAISE:  // Cambiar si usas otra capa
-                tap_code16(ES_SCLN);
-                tap_code16(KC_ENT);
-                abort_caps_word = true;
-            break;
-
-            // Caps word (enable / disable)
-            // M2 reemplazado por LOWER (ajustar según tu keymap)
-            case LOWER:  // Cambiar si usas otra capa
-                if(caps_word){
-                    abort_caps_word = true;
-                }else{
-                    set_caps(true, false, true);
-                }
-            break;
         }
 
         if(caps_word && abort_caps_word) set_caps(false, false, true);
@@ -343,12 +325,14 @@ bool process_acento_corne(uint16_t keycode, keyrecord_t *record) {
     bool stop_propagation = false;
     bool handled = false;
 
-    // 1. Activar modo acento cuando se presiona AC_TILDE
+    // 1. Activar modo acento cuando se presiona AC_TILDE por primera vez
     if (keycode == AC_TILDE && record->event.pressed) {
-        if(!delete){
+        if(!delete && !accent){
+            // Primera pulsación: activar modo acento
             accent = true;
+            return false;  // No enviar nada al OS
         }
-        return false;  // No enviar nada al OS
+        // Si accent o delete ya están activos, dejar que handle_accents lo procese
     }
 
     // 2. Procesar Caps Word (tiene prioridad)

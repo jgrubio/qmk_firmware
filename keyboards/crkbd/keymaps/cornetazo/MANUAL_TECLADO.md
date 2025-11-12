@@ -153,41 +153,26 @@ Presiona la tecla **´** (ubicada donde normalmente estaría `;` en QWERTY).
 | Secuencia | Resultado | Uso |
 |-----------|-----------|-----|
 | `´` + `Space` | $ | Variables, precios |
-| `´` + `RAISE` | `;` + Enter | Fin de línea en programación |
-| `´` + `LOWER` | Caps Word ON/OFF | Escribe UNA_PALABRA_EN_MAYÚSCULAS |
 
 #### Modo Borrar Palabras
 
 | Secuencia | Resultado |
 |-----------|-----------|
-| `´` + `´` | Activa modo borrado |
+| `´` + `´` | Borra una palabra hacia atrás (Ctrl+Backspace) |
 
-Una vez activado:
-- Cada pulsación de `´` borra una palabra completa hacia atrás
-- Presionar cualquier otra tecla desactiva el modo
+**Funcionamiento**:
+- Primera pulsación de `´`: activa el modo acento
+- Segunda pulsación de `´`: borra una palabra inmediatamente
+- Mantener presionado `´`: sigue borrando palabras
+- Presionar cualquier otra tecla: desactiva el modo borrado
 
 **Ejemplo**:
 ```
 Texto: "Hola mundo cruel"
          ↓ cursor aquí
-1. Presionar: ´ + ´ (activa modo)
-2. Presionar: ´ (borra "cruel")
-3. Presionar: ´ (borra "mundo")
+1. Presionar: ´ + ´ (borra "cruel")
+2. Mantener ´ o presionar de nuevo (borra "mundo")
 Resultado: "Hola "
-```
-
-### 🎨 Caps Word
-
-**Activar/Desactivar**: `´` + `LOWER`
-
-Cuando está activo:
-- Todas las letras se escriben en MAYÚSCULAS
-- Números, `-`, `_`, `.` funcionan normalmente
-- Se desactiva automáticamente al presionar: Space, Enter, o cualquier otro símbolo
-
-**Uso típico**: Escribir constantes en programación
-```
-´ + LOWER → MAXIMUM_DAMAGE → Space (se desactiva)
 ```
 
 ---
@@ -200,7 +185,6 @@ Los combos son combinaciones de dos teclas presionadas simultáneamente que prod
 |-------|-----------|-------------|
 | `D` + `F` | `"` | Comillas dobles |
 | `J` + `K` | `ESC` | Escape rápido |
-| `N` + `´` | `ñ` | Ñ directa (sin modo acento) |
 
 ---
 
